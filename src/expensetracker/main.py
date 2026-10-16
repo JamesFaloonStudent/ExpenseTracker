@@ -1,23 +1,11 @@
-from fastapi import FastAPI, APIRouter, Request
-from fastapi.responses import JSONResponse, HTMLResponse
-from fastapi.templating import Jinja2Templates
-
-
-
-
-
-
-
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from routers.viewRouter import router as ViewRouter
 
 app = FastAPI()
-router = APIRouter()
-views = Jinja2Templates(directory="Views")
+
+# Serve everything in ./static at the URL /static
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-
-@router.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    return views.TemplateResponse(request=request, name="index.html") 
-
-
-app.include_router(router)
+app.include_router(ViewRouter)  
