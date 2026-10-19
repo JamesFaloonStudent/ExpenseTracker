@@ -31,7 +31,7 @@ def getExpenseById(item_id):
 
 
 @router.delete("/{item_id}")
-def getExpenseById(item_id):
+def deleteExpenseById(item_id):
     try:
         return deleteOneExpense(item_id)
     except Exception as e:

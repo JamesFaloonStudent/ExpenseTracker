@@ -3,8 +3,10 @@ from fastapi import APIRouter, HTTPException
 from expensetracker.database.s3 import create_upload_url, create_get_url
 from expensetracker.models.s3Models import UploadRequest
 from expensetracker.database.database import get_one_expense
-router = APIRouter(prefix="/s3")
 
+
+
+router = APIRouter(prefix="/s3")
 
 
 @router.post("/presignedUrl/upload")

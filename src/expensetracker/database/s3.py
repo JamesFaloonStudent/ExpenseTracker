@@ -4,7 +4,6 @@ from botocore.config import Config
 from expensetracker.models.s3Models import UploadRequest 
 import uuid 
 
-# TODO : must be in .env 
 
 BUCKET = os.environ['BUCKET']
 REGION = os.environ['REGION']
